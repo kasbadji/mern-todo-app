@@ -17,11 +17,11 @@ function Signup () {
       const res = await api.post('/signup', { username, password, email });
       setMessage(res.data.message);
 
-      // ✅ Save tokens directly after signup
+      // Save tokens directly after signup
       localStorage.setItem("accessToken", res.data.accessToken);
       localStorage.setItem("refreshToken", res.data.refreshToken);
 
-      // ✅ Redirect straight to Todo page (no need to login again)
+      // Redirect straight to Todo page (no need to login again)
       navigate("/todo");
     } catch (err) {
       setMessage(err.response?.data?.error || "Signup failed");
@@ -29,12 +29,11 @@ function Signup () {
   };
 
 return (
-    <div className="signup-page"> {/* ✅ Wrap everything in a page-specific class */}
-      <div className="signup-container">
-        <h2 className="signup-title">Signup</h2>
-        <form className="signup-form" onSubmit={handleSubmit}>
+    <div> 
+      <div>
+        <h2>Signup</h2>
+        <form  onSubmit={handleSubmit}>
           <input
-            className="signup-input"
             type="text"
             placeholder="Username"
             value={username}
@@ -42,7 +41,6 @@ return (
             required
           />
           <input
-            className="signup-input"
             type="email"
             placeholder="Email"
             value={email}
@@ -50,14 +48,13 @@ return (
             required
           />
           <input
-            className="signup-input"
             type="password"
             placeholder="Password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
-          <button className="signup-button" type="submit">
+          <button type="submit">
             Signup
           </button>
         </form>
@@ -70,9 +67,9 @@ return (
             {message}
           </p>
         )}
-        <p className="login-redirect">
+        <p>
           Already have an account?{" "}
-          <Link to="/login" className="login-link">
+          <Link to="/login">
             Log in
           </Link>
         </p>

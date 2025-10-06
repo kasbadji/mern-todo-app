@@ -1,7 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { getTasks, addTask, deleteTask, toggleTask } from '../api/tasks';
-import '../styles/TodoUI.css';
 
 function TodoUI() {
   const [tasks, setTasks] = useState([]);
@@ -57,14 +56,14 @@ function TodoUI() {
   };
 
   return (
-    <div className="todo-page">
-      <div className="todo-container">
-        <header className="todo-header">
+    <div>
+      <div>
+        <header>
           <h1>My Todo List</h1>
-          <button className="logout-button" onClick={handleLogout}>Logout</button>
+          <button onClick={handleLogout}>Logout</button>
         </header>
 
-        <form className="todo-form" onSubmit={handleAdd}>
+        <form onSubmit={handleAdd}>
           <input
             type="text"
             className="todo-input"
@@ -75,7 +74,7 @@ function TodoUI() {
           <button type="submit" className="todo-add-button">Add</button>
         </form>
 
-        <ul className="todo-list">
+        <ul>
           {tasks.map((task) => (
             <li key={task._id} className={`todo-item ${task.completed ? 'completed' : ''}`}>
               <input
@@ -84,7 +83,7 @@ function TodoUI() {
                 onChange={() => handleToggle(task._id, task.completed)}
               />
               <span>{task.title}</span>
-              <button className="delete-button" onClick={() => handleDelete(task._id)}>×</button>
+              <button onClick={() => handleDelete(task._id)}>×</button>
             </li>
           ))}
         </ul>

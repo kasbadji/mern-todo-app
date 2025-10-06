@@ -24,12 +24,11 @@ function Login() {
   };
 
   return (
-    <div className="login-page">
-      <div className="login-container">
-        <h2 className="login-title">Login</h2>
-        <form className="login-form" onSubmit={handleLogin}>
+    <div>
+      <div>
+        <h2>Login</h2>
+        <form onSubmit={handleLogin}>
           <input
-            className="login-input"
             type="email"
             placeholder="Email"
             value={email}
@@ -37,7 +36,6 @@ function Login() {
             required
           />
           <input
-            className="login-input"
             type="password"
             placeholder="Password"
             value={password}
@@ -59,9 +57,9 @@ function Login() {
             {message}
           </p>
         )}
-        <p className="signup-redirect">
+        <p>
           Don't have an account?{' '}
-          <Link to="/signup" className="signup-link">
+          <Link to="/signup">
             Sign up
           </Link>
         </p>

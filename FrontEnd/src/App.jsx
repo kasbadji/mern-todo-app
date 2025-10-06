@@ -1,8 +1,8 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Signup from "./pages/Signup";
 import Login from "./pages/Login";
-import Dashboard from "./pages/Dashboard"; // new import
 import ProtectedRoute from "./components/ProtectedRoute";
+import TodoUi from "./pages/TodoUI";
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
         path="/todo"
         element={
           <ProtectedRoute>
-            <Dashboard /> 
+            <TodoUi /> 
           </ProtectedRoute>
         }
       />
